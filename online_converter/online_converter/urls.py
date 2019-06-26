@@ -21,5 +21,5 @@ from youtube_converter import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('history/', views.history),
-    path('', views.converter),
+    path('', views.converter, name='converter'),
 ]
