@@ -3,7 +3,12 @@
 
 <p>$ git clone https://github.com/akyl0221/OnlineConverter.git</p>
 <p>$ virtualenv venv -p python3</p>
-<p>$ source venv/bin/activate</p>
+<p>$ source venv/bin/activate <br>
+   $ pip install django python-decouple youtube-dl<br>
+   $ cd OnlineConverter <br>
+   $ python manage.py migrate <br>
+   $ python manage.py runserver
+</p>
 
 <h2>Requarements</h2>
 <ul>

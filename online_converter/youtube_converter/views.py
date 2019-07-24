@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponsePermanentRedirect
 
-from .models import Download
-from .forms import UrlForm
-from .downloader import convert
+from youtube_converter.models import Download
+from youtube_converter.forms import UrlForm
+from youtube_converter.downloader import convert
 
 
 def history(request):
