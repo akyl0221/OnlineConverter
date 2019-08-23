@@ -1,13 +1,22 @@
-version: "2"
+version: "3"
 services:
-  django:
-    container_name: django_server
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: docker_online_converter
-    stdin_open: true
-    tty: true
+  db:
+    image: mysql:5.7
+    volumes:
+      - "./mysql:/var/lib/mysql"
+    expose:
+      - "3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'online_converter'
+      MYSQL_USER: 'kel'
+  web:
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
     volumes:
       - .:/online_converter
     ports:
